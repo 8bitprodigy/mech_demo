@@ -8,4 +8,4 @@ You can look around like in a first-person shooter independent of character's he
 
 Also includes a skybox and infinite plane.
 
-![](Recording.mp4)
+![](screenshot.png)
