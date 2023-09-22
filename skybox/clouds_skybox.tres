@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SkyboxResource" load_steps=8 format=3 uid="uid://2nsdaww3p87k"]
+
+[ext_resource type="Texture2D" uid="uid://clkglms3lnh6m" path="res://skybox/clouds1/clouds1_down.bmp" id="1_w37yf"]
+[ext_resource type="Texture2D" uid="uid://bcl6p4fgefy0t" path="res://skybox/clouds1/clouds1_east.bmp" id="2_5rddb"]
+[ext_resource type="Texture2D" uid="uid://d2xgh8n7h7xsb" path="res://skybox/clouds1/clouds1_north.bmp" id="3_lokir"]
+[ext_resource type="Script" path="res://skybox/skybox_resource.gd" id="4_dvftt"]
+[ext_resource type="Texture2D" uid="uid://dxj0x3khk6rje" path="res://skybox/clouds1/clouds1_south.bmp" id="5_82mw3"]
+[ext_resource type="Texture2D" uid="uid://cr7ylrugklrgw" path="res://skybox/clouds1/clouds1_up.bmp" id="6_t8hum"]
+[ext_resource type="Texture2D" uid="uid://bt72fctudomh" path="res://skybox/clouds1/clouds1_west.bmp" id="7_126jt"]
+
+[resource]
+script = ExtResource("4_dvftt")
+up = ExtResource("6_t8hum")
+down = ExtResource("1_w37yf")
+north = ExtResource("3_lokir")
+south = ExtResource("5_82mw3")
+east = ExtResource("2_5rddb")
+west = ExtResource("7_126jt")

@@ -1,0 +1,111 @@
+[gd_scene load_steps=13 format=3 uid="uid://csv2lfbfs1171"]
+
+[ext_resource type="Script" path="res://characters/mech_controller.gd" id="1_jyu8b"]
+[ext_resource type="PackedScene" uid="uid://i444byfpcb5o" path="res://components/health_component.tscn" id="2_irrb3"]
+[ext_resource type="PackedScene" uid="uid://dned7nntadaxx" path="res://components/hitbox_component.tscn" id="3_p8ced"]
+[ext_resource type="PackedScene" uid="uid://blub1slabs8rk" path="res://components/input_synchronizer.tscn" id="4_37g7b"]
+[ext_resource type="Script" path="res://characters/mech_orientation_hud.gd" id="4_osmsp"]
+[ext_resource type="PackedScene" uid="uid://b8t7rph6vl3m" path="res://components/projectile_emitter.tscn" id="5_b8o4m"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ywv5q"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mjgi2"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_la4et"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+properties/2/path = NodePath(".:player")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_su44w"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_1c1rf"]
+left_to_right = 0.4
+size = Vector3(0.5, 0.5, 0.6)
+
+[sub_resource type="FontFile" id="FontFile_5nu00"]
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/32/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_jyu8b")
+
+[node name="health_component" parent="." instance=ExtResource("2_irrb3")]
+
+[node name="hitbox_component" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_p8ced")]
+health_component = NodePath("../health_component")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox_component"]
+shape = SubResource("SphereShape3D_ywv5q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_mjgi2")
+
+[node name="turret" type="Node3D" parent="."]
+script = ExtResource("4_osmsp")
+
+[node name="Camera3D" type="Camera3D" parent="turret"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+fov = 90.0
+near = 0.001
+
+[node name="SpotLight3D" type="SpotLight3D" parent="turret/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001)
+spot_range = 4096.0
+spot_attenuation = 0.0272047
+
+[node name="Node2D" type="Node2D" parent="turret/Camera3D"]
+position = Vector2(576, 324)
+
+[node name="turret" type="Line2D" parent="turret/Camera3D/Node2D"]
+points = PackedVector2Array(0, 0, 0, -20)
+width = 2.0
+
+[node name="legs" type="Line2D" parent="turret/Camera3D/Node2D"]
+points = PackedVector2Array(0, -10, 10, 0, 10, 10, -10, 10, -10, 0, 0, -10)
+width = 2.0
+
+[node name="input_synchronizer" parent="." instance=ExtResource("4_37g7b")]
+replication_config = SubResource("SceneReplicationConfig_la4et")
+visibility_update_mode = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_su44w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, -0.3)
+mesh = SubResource("PrismMesh_1c1rf")
+
+[node name="projectile_emitter" parent="." instance=ExtResource("5_b8o4m")]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 0, 0)
+pixel_size = 0.001
+billboard = 1
+no_depth_test = true
+fixed_size = true
+text = "test
+"
+font = SubResource("FontFile_5nu00")
+uppercase = true

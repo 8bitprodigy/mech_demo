@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SkyboxResource" load_steps=8 format=3 uid="uid://6i70w2p2u1os"]
+
+[ext_resource type="Texture2D" uid="uid://kr8d67akwko8" path="res://skybox/space/space_down.png" id="1_wkqpy"]
+[ext_resource type="Texture2D" uid="uid://bc374ohs426xv" path="res://skybox/space/space_east.png" id="2_82ym1"]
+[ext_resource type="Texture2D" uid="uid://bhpabwi3gvqr1" path="res://skybox/space/space_north.png" id="3_msu87"]
+[ext_resource type="Script" path="res://skybox/skybox_resource.gd" id="4_r6eek"]
+[ext_resource type="Texture2D" uid="uid://dwh1he5f4roiq" path="res://skybox/space/space_south.png" id="5_qkkuf"]
+[ext_resource type="Texture2D" uid="uid://u3juyfvae4nl" path="res://skybox/space/space_up.png" id="6_q6b8h"]
+[ext_resource type="Texture2D" uid="uid://ld2u7w3fiev4" path="res://skybox/space/space_west.png" id="7_ygul5"]
+
+[resource]
+script = ExtResource("4_r6eek")
+up = ExtResource("6_q6b8h")
+down = ExtResource("1_wkqpy")
+north = ExtResource("3_msu87")
+south = ExtResource("5_qkkuf")
+east = ExtResource("2_82ym1")
+west = ExtResource("7_ygul5")

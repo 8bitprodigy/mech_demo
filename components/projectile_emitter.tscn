@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8t7rph6vl3m"]
+
+[ext_resource type="Script" path="res://components/scripts/projectile_emitter.gd" id="1_cb1ne"]
+
+[node name="projectile_emitter" type="Marker3D"]
+script = ExtResource("1_cb1ne")

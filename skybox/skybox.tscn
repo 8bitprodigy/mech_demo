@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj1s66x1utt6n"]
+
+[ext_resource type="ArrayMesh" uid="uid://b5emw2n1ikeaw" path="res://skybox/skybox_cube.res" id="1_22425"]
+[ext_resource type="Script" path="res://skybox/skybox.gd" id="1_qxigs"]
+
+[node name="skybox" type="Node3D"]
+script = ExtResource("1_qxigs")
+
+[node name="cube" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_22425")
+
+[node name="round_cube" type="MeshInstance3D" parent="."]
+visible = false
+skeleton = NodePath("../cube")

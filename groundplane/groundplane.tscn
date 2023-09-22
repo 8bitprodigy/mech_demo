@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfvy4bfspyl0e"]
+
+[ext_resource type="Texture2D" uid="uid://svqpj6y82x5b" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="1_3rjsh"]
+[ext_resource type="Script" path="res://groundplane/groundplane.gd" id="1_8uh1p"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7sjsm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsc7h"]
+albedo_texture = ExtResource("1_3rjsh")
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d3te1"]
+material = SubResource("StandardMaterial3D_vsc7h")
+size = Vector2(100, 100)
+subdivide_width = 4
+subdivide_depth = 4
+
+[node name="groundplane" type="StaticBody3D"]
+script = ExtResource("1_8uh1p")
+
+[node name="groundplane_shape" type="CollisionShape3D" parent="."]
+shape = SubResource("WorldBoundaryShape3D_7sjsm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_d3te1")
