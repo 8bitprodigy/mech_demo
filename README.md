@@ -9,3 +9,6 @@ You can look around like in a first-person shooter independent of character's he
 Also includes a skybox and infinite plane.
 
 ![](Screenshot.png)
+
+Video: 
+https://github.com/8bitprodigy/mech_demo/raw/main/Recording.mp4
