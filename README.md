@@ -12,4 +12,4 @@ Also includes a skybox and infinite plane.
 
 Video: 
 
-https://github.com/8bitprodigy/mech_demo/assets/6080682/bfb4f0b3-e46a-4722-9ff0-6650a9055791
+https://github.com/8bitprodigy/mech_demo/assets/6080682/c53f2346-9ff3-465a-93a1-7bb3d7691e8b
