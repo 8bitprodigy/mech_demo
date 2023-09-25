@@ -1,7 +1,6 @@
 extends StaticBody3D
 
 @export var ground_texture : Texture
-# var shader : Shader = preload("res://skybox/skybox.gdshader")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
